@@ -1,0 +1,13 @@
+body {
+    background-color: #f7f8fc;
+   
+}
+    
+.S9gUrf-YoZ4jf, .S9gUrf-YoZ4jf *{
+    left: 16%;
+}
+@media only screen and (max-width: 500px) {
+    .S9gUrf-YoZ4jf, .S9gUrf-YoZ4jf * {
+      left: 7%;
+    }
+  }
