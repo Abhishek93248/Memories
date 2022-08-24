@@ -8,7 +8,7 @@ import useStyles from './styles';
 const Posts = ({currentId,setCurrentId}) => {
   const posts = useSelector((state) => state.posts.posts);
   const isLoading=useSelector((state)=>state.posts.isLoading);
-  console.log(posts);
+  
   
 
 

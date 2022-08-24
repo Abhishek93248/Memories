@@ -11,11 +11,13 @@ import PostDetails from './components/PostDetails/PostDetails';
 
 
 
+
 const App = () => {
   const user=JSON.parse(localStorage.getItem('profile'))
   
-  const id="87001458269-v68mhu1j0mgrs31ut1eosbepn8p19h1j.apps.googleusercontent.com"
  
+   
+  const id=process.env.REACT_APP_API_ENDPOINT;
   
   
   return (
@@ -32,6 +34,7 @@ const App = () => {
     <Route path="/posts/:id" exact element={<PostDetails/>} />
 
     <Route path="/auth" exact element={!user?<Auth/>:<Navigate replace to="/posts" />} /> 
+    
 
     </Routes>
      

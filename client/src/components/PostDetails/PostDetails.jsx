@@ -4,6 +4,7 @@ import { Paper, Typography, CircularProgress, Divider } from '@material-ui/core/
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useNavigate } from 'react-router-dom';
+import CommentSection from './CommentSection';
 import useStyles from './styles';
 import { getPost,getPostsBySearch } from '../../actions/posts';
 
@@ -16,7 +17,7 @@ const PostDetails = () => {
   const { id } = useParams();
   useEffect(() => {
     dispatch(getPost(id));
-  }, [id]);
+  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
  
 
@@ -24,7 +25,7 @@ const PostDetails = () => {
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
     }
-  }, [post]);
+  }, [post]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!post) return null;
 
@@ -52,6 +53,10 @@ const PostDetails = () => {
           <Divider style={{ margin: '20px 0' }} />
           <Typography variant="h6">Created by: {post.name}</Typography>
           <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
+
+          <Divider style={{ margin: '20px 0' }} />
+          <CommentSection post={post} />
+          <Divider style={{ margin: '20px 0' }} />
          
          
           
@@ -72,7 +77,7 @@ const PostDetails = () => {
                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
                 <Typography gutterBottom variant="subtitle2">{message}</Typography>
                 <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography>
-                <img src={selectedFile} width="200px" />
+                <img src={selectedFile} alt="img" width="200px" />
               </div>
             ))}
           </div>
